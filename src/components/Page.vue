@@ -117,7 +117,7 @@ export default {
 
   computed: {
     filteredElements() {
-      return this.elements.filter(({ href, innerText }) => href && innerText);
+      return this.elements.filter(({ href, innerText }) => href || innerText);
     },
 
     showElementsSkeleton() {
