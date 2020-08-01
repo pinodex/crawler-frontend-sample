@@ -36,7 +36,7 @@
         <hr />
 
         <b-skeleton
-          :active="elements.length === 0"
+          :active="status === 'pending' || status === 'processing'"
         />
 
         <div
@@ -59,6 +59,10 @@
 
             <p v-if="tagName !== 'A'">{{ innerText }}</p>
           </div>
+        </div>
+
+        <div v-if="status === 'finished' && filteredElements.length === 0">
+          <p>Cannot find any matching elements.</p>
         </div>
       </template>
 
@@ -93,6 +97,11 @@ export default {
     elements: {
       type: Array,
       default: () => [],
+    },
+
+    status: {
+      type: String,
+      default: () => null,
     },
 
     to: {

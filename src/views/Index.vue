@@ -96,6 +96,9 @@ export default {
         });
 
         this.isFormLoading = false;
+        this.page = null;
+
+        this.$refs.form.reset();
 
         return;
       }
