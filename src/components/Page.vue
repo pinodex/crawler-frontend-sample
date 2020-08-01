@@ -36,7 +36,7 @@
         <hr />
 
         <b-skeleton
-          :active="status === 'pending' || status === 'processing'"
+          :active="showElementsSkeleton"
         />
 
         <div
@@ -118,6 +118,10 @@ export default {
   computed: {
     filteredElements() {
       return this.elements.filter(({ href, innerText }) => href && innerText);
+    },
+
+    showElementsSkeleton() {
+      return this.status === null || ['pending', 'processing'].includes(this.status);
     },
   },
 };
