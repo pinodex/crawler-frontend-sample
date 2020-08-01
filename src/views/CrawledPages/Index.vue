@@ -58,7 +58,9 @@ export default {
   }),
 
   async mounted() {
-    this.pages = await pageService.all();
+    const pages = await pageService.all();
+
+    this.pages = pages.filter(({ status }) => status !== 'failed');
 
     this.isLoading = false;
   },
