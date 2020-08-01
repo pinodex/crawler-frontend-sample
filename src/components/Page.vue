@@ -50,7 +50,7 @@
             </span>
           </div>
 
-          <div class="column">
+          <div class="column page-value">
             <p v-if="tagName === 'A'">
               <a :href="href" target="_blank">
                 {{ href }}
@@ -113,3 +113,8 @@ export default {
   },
 };
 </script>
+
+<style lang="sass" scoped>
+.page-value
+  overflow-wrap: anywhere
+</style>
